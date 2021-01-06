@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
+      * {
+        box-sizing: border-box;
+        user-select: none;
+        font-family: "Do Hyeon", sans-serif;
+        font-size: 30px;
+      }
+
+      .body-cal {
+        width: 80%;
+        background: white;
+        border: 1px solid #ebebeb;
+        position: absolute;
+        left: 10%;
+        top: 7%;
+        border-radius: 10px;
+        box-shadow: 0 20px 30px 1px #dbdbdb;
+      }
+      .resultado {
+        width: full;
+        height: 80px;
+        margin: 8px;
+        padding: 4px 10px 4px 4px;
+        color: #457b9d;
+        border: 1px solid #ebebeb;
+        text-align: right;
+      }
+
+      .calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        text-align: center;
+        /* grid-gap: 3px; */
+      }
+      .tecla {
+        height: 60px;
+        background: #a8dadc;
+        /* background: #ffffff; */
+        padding: 4px;
+        margin: 8px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ebebeb;
+      }
+      .operator {
+        background: #e63946;
+      }
+      .iqual {
+        background: #1d3557;
+      }
+
+      .tecla:hover {
+        background: none;
+        cursor: pointer;
+      }
+    </style>
+    <div class="body-cal">
+      <div class="resultado">
+        <span id="LugarResultado">Resultado!</span>
+      </div>
+
+      <div class="calculator">
+        <div class="tecla operator">(</div>
+        <div class="tecla operator">)</div>
+        <div class="tecla operator" id="clear-all">AC</div>
+        <div class="tecla operator" id="clear">C</div>
+        <div class="tecla nro" id="boton-nro">7</div>
+        <div class="tecla nro" id="boton-nro">8</div>
+        <div class="tecla nro" id="boton-nro">9</div>
+        <div class="tecla operator">/</div>
+        <div class="tecla nro" id="boton-nro">4</div>
+        <div class="tecla nro" id="boton-nro">5</div>
+        <div class="tecla nro" id="boton-nro">6</div>
+        <div class="tecla operator">*</div>
+        <div class="tecla nro" id="boton-nro">1</div>
+        <div class="tecla nro" id="boton-nro">2</div>
+        <div class="tecla nro" id="boton-nro">3</div>
+        <div class="tecla operator" id="res">-</div>
+        <div class="tecla nro" id="boton-nro">0</div>
+        <div class="tecla nro">.</div>
+        <div class="tecla iqual" id="igual">=</div>
+        <div class="tecla operator" id="suma">+</div>
+      </div>
+    </div>
+
+    <script>
+      const resultado = document.querySelector("#LugarResultado");
+
+      const btnNumero = document.getElementsByClassName("nro");
+
+      const btnSum = document.getElementById("suma");
+      const btnRes = document.getElementById("res");
+
+      const btnIgual = document.getElementById("igual");
+      const btnClearAll = document.getElementById("clear-all");
+      const btnClear = document.getElementById("clear");
+
+      // let sNroTempScreen = "";
+      const variablesToZero = () => {
+        // aNroTemp = [];
+        sNroTempScreen = "";
+        nNroTempBefore = 0;
+        nNroTempAfter = 0;
+      };
+      variablesToZero();
+
+      esAfterNro = false;
+      nOperacion = 0;
+      nNroTemp = 0;
+
+      const preOperacion = () => {
+        if (!esAfterNro) {
+          nNroTempBefore = Number(sNroTempScreen);
+        } else {
+          nNroTempAfter = Number(sNroTempScreen);
+        }
+
+        console.log("before: " + nNroTempBefore);
+        console.log("after: " + nNroTempAfter);
+        console.log("length: " + sNroTempScreen.length);
+        console.log("screen: " + sNroTempScreen);
+        console.log("operacion: " + nOperacion);
+        console.log("temp: " + nNroTemp);
+        console.log("----------");
+      };
+
+      const Operacion = (p_operationActual) => {
+        switch (p_operationActual) {
+          case 1:
+            nNroTempBefore += nNroTempAfter;
+            nNroTemp = nNroTempBefore;
+            variablesToZero();
+            nNroTempBefore = nNroTemp;
+            console.log("sumó!");
+            break;
+
+          case 2:
+            nNroTempBefore -= nNroTempAfter;
+            nNroTemp = nNroTempBefore;
+            variablesToZero();
+            nNroTempBefore = nNroTemp;
+            console.log("restó!");
+            break;
+
+          default:
+            console.log("Error aOperacion actual.");
+            break;
+        }
+      };
+
+      (function updateCalculator() {
+        for (const iterator of btnNumero) {
+          iterator.onclick = () => {
+            if (sNroTempScreen.length < 16) {
+              //Si se coloca varios puntos, se bloquea. Bug.
+              sNroTempScreen += iterator.textContent;
+              toPrint(sNroTempScreen);
+              preOperacion();
+            }
+          };
+        }
+      })();
+      // [+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+]
+      btnSum.onclick = () => {
+        nOperacion = 1;
+        toPrint(0);
+        sNroTempScreen = "";
+        esAfterNro = true;
+      };
+
+      // [-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-]
+      btnRes.onclick = () => {
+        nOperacion = 2;
+        toPrint(0);
+        sNroTempScreen = "";
+        esAfterNro = true;
+        // console.log("termino btnRes");
+      };
+
+      // [=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=]
+      btnIgual.onclick = () => {
+        Operacion(nOperacion);
+        toPrint(nNroTempBefore);
+        esAfterNro = true;
+        preOperacion();
+      };
+
+      btnClearAll.onclick = () => {
+        variablesToZero();
+        toPrint(0);
+        esAfterNro = false;
+      };
+
+      btnClear.onclick = () => {
+        sNroTempScreen = sNroTempScreen.slice(0, -1);
+        toPrint(sNroTempScreen);
+        preOperacion();
+      };
+
+      const toPrint = (value) => {
+        resultado.textContent = value;
+      };
+    </script>
+  </body>
+</html>
