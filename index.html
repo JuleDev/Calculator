@@ -102,6 +102,8 @@
 
       const btnSum = document.getElementById("suma");
       const btnRes = document.getElementById("res");
+      const btnMul = document.getElementById("mul");
+      const btnDiv = document.getElementById("div");
 
       const btnIgual = document.getElementById("igual");
       const btnClearAll = document.getElementById("clear-all");
@@ -154,6 +156,22 @@
             console.log("restó!");
             break;
 
+          case 3:
+            nNroTempBefore *= nNroTempAfter;
+            nNroTemp = nNroTempBefore;
+            variablesToZero();
+            nNroTempBefore = nNroTemp;
+            console.log("mutitplico!");
+            break;
+
+          case 4:
+            nNroTempBefore /= nNroTempAfter;
+            nNroTemp = nNroTempBefore;
+            variablesToZero();
+            nNroTempBefore = nNroTemp;
+            console.log("dividio!");
+            break;
+
           default:
             console.log("Error aOperacion actual.");
             break;
@@ -187,6 +205,22 @@
         sNroTempScreen = "";
         esAfterNro = true;
         // console.log("termino btnRes");
+      };
+
+      //[*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*]
+      btnMul.onclick = () => {
+        nOperacion = 3;
+        toPrint(0);
+        sNroTempScreen = "";
+        esAfterNro = true;
+      };
+
+      //[/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/]
+      btnDiv.onclick = () => {
+        nOperacion = 4;
+        toPrint(0);
+        sNroTempScreen = "";
+        esAfterNro = true;
       };
 
       // [=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=]
