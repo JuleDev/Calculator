@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="https://www.flaticon.es/svg/static/icons/svg/2134/2134684.svg"
+      type="image/x-icon"
+    />
+    <title>Calculadora</title>
   </head>
   <body>
     <style>
@@ -68,7 +73,7 @@
     </style>
     <div class="body-cal">
       <div class="resultado">
-        <span id="LugarResultado">Resultado! xd</span>
+        <span id="LugarResultado">Powered by JuleDev</span>
       </div>
 
       <div class="calculator">
@@ -199,7 +204,7 @@
       // [+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+]
       btnSum.onclick = () => {
         nOperacion = 1;
-        toPrint(0);
+        toPrint("+");
         sNroTempScreen = "";
         esAfterNro = true;
       };
@@ -207,7 +212,7 @@
       // [-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-]
       btnRes.onclick = () => {
         nOperacion = 2;
-        toPrint(0);
+        toPrint("-");
         sNroTempScreen = "";
         esAfterNro = true;
         // console.log("termino btnRes");
@@ -216,7 +221,7 @@
       //[*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*]
       btnMul.onclick = () => {
         nOperacion = 3;
-        toPrint(0);
+        toPrint("*");
         sNroTempScreen = "";
         esAfterNro = true;
       };
@@ -224,7 +229,7 @@
       //[/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/]
       btnDiv.onclick = () => {
         nOperacion = 4;
-        toPrint(0);
+        toPrint("/");
         sNroTempScreen = "";
         esAfterNro = true;
       };
