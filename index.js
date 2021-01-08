@@ -135,11 +135,12 @@ const Operacion = (p_operationActual) => {
         preOperacion();
         printConsole();
 
-        if (is_after) {
-          Operacion(n_operacion);
-          s_nroTempScreen = String(n_nroTemp);
-          operacionLive(s_nroTempScreen);
-        }
+        // if (is_after) {
+        //   //dot after bug = new operation
+        //   Operacion(n_operacion);
+        //   s_nroTempScreen = String(n_nroTempBefore);
+        //   operacionLive(s_nroTempScreen);
+        // }
       }
       // }
     };
@@ -192,7 +193,7 @@ btnPer.onclick = () => {
 
 //[=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=][=]
 btnIgual.onclick = () => {
-  // Operacion(n_operacion);
+  Operacion(n_operacion);
   // n_nroTempBefore.toFixed(6
   s_nroTempScreen = String(parseFloat(n_nroTempBefore));
   toPrint(s_nroTempScreen);
