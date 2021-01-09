@@ -63,8 +63,22 @@ const preOperacion = () => {
   n_dots = 0;
 };
 
-const operacionLive = (print) => {
-  resLive.textContent = "= " + String(print);
+const operacionLive = (par1, par2) => {
+  resLive.textContent =
+    "= " +
+    String(
+      (() => {
+        if (n_operacion == 1) {
+          return par1 + par2;
+        } else if (n_operacion == 2) {
+          return par1 - par2;
+        } else if (n_operacion == 3) {
+          return par1 * par2;
+        } else if (n_operacion == 4) {
+          return par1 / par2;
+        }
+      })()
+    );
 };
 
 const Operacion = (p_operationActual) => {
@@ -134,15 +148,16 @@ const Operacion = (p_operationActual) => {
         toPrint(s_nroTempScreen);
         preOperacion();
         printConsole();
-
-        // if (is_after) {
-        //   //dot after bug = new operation
-        //   Operacion(n_operacion);
-        //   s_nroTempScreen = String(n_nroTempBefore);
-        //   operacionLive(s_nroTempScreen);
-        // }
+        // console.log(s_nroTempScreen[s_nroTempScreen.length - 1]);
+        if (is_after) {
+          //dot after bug = new operation ok
+          if ((s_nroTempScreen[s_nroTempScreen.length - 1] /= ".")) {
+            s_nroTempScreen = String(n_nroTempBefore);
+            Operacion(n_operacion);
+          }
+          operacionLive(n_nroTempAfter, n_nroTempBefore);
+        }
       }
-      // }
     };
   }
 })();

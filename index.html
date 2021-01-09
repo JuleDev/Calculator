@@ -9,89 +9,13 @@
       type="image/x-icon"
     />
     <title>Calculadora</title>
+    <link rel="stylesheet" href="index.css" />
+    <!-- <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    /> -->
   </head>
   <body>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
-
-      :root {
-        --colorButtonPri: #b298dc;
-        --colorButtonSec: #b8d0eb;
-        --colorButtonTer: #a663cc;
-        --colorBorder: #b9faf8;
-        --colorText: #6f2dbd;
-      }
-
-      * {
-        box-sizing: border-box;
-        user-select: none;
-        font-family: "Do Hyeon", sans-serif;
-        font-size: 30px;
-        color: var(--colorText);
-      }
-
-      .body-cal {
-        width: 80%;
-        /* background: white; */
-        border: 1px solid var(--colorBorder);
-        position: absolute;
-        left: 10%;
-        top: 7%;
-        border-radius: 10px;
-        /* box-shadow: 0 20px 30px 1px #dbdbdb; */
-      }
-      .resultado {
-        width: full;
-        height: 80px;
-        margin: 8px;
-        padding: 4px 10px 4px 4px;
-        /* color: var(--colorText); */
-        border: 1px solid var(--colorBorder);
-        text-align: right;
-      }
-
-      #resultadoLive {
-        width: full;
-        height: full;
-        margin: auto;
-        position: absolute;
-        right: 17px;
-        bottom: 325px;
-        color: var(--colorButtonPri);
-        /* background: red; */
-      }
-
-      .calculator {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        text-align: center;
-        padding: 6px;
-        /* padding: 0.05px; */
-      }
-      .tecla {
-        height: 55px;
-        background: var(--colorButtonPri);
-        /* background: #ffffff; */
-        padding: 4px;
-        margin: 3px;
-        border-radius: 7px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid var(--colorBorder);
-      }
-      .operator {
-        background: var(--colorButtonSec);
-      }
-      .iqual {
-        background: var(--colorButtonTer);
-      }
-
-      .tecla:hover {
-        background: none;
-        cursor: pointer;
-      }
-    </style>
     <div class="body-cal">
       <div class="resultado">
         <span id="LugarResultado"></span>
