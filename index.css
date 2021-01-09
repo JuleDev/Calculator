@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
 
 :root {
-  --colorButtonPri: #b298dc;
-  --colorButtonSec: #b8d0eb;
-  --colorButtonTer: #a663cc;
-  --colorBorder: #b9faf8;
-  --colorText: #6f2dbd;
+  --colorButtonPri: #a8dadc;
+  --colorButtonSec: #e63946;
+  --colorButtonTer: #457b9d;
+  --colorBorder: #a8dadc;
+  --colorText: #1d3557;
 }
 
 * {
