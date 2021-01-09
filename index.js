@@ -28,6 +28,7 @@ let n_nroTempBefore = 0;
 let s_nroTempScreen = "";
 
 let n_dots = 0;
+let isMe = false;
 
 const variablesToZero = () => {
   s_nroTempScreen = "";
@@ -218,7 +219,17 @@ btnIgual.onclick = () => {
 };
 
 btnMe.onclick = () => {
-  toPrint(me);
+  isMe = !isMe;
+  let textoTemp = is_after ? String(n_nroTempAfter) : String(n_nroTempBefore);
+  toPrint(
+    (() => {
+      if (isMe) {
+        return me;
+      } else {
+        return textoTemp;
+      }
+    })()
+  );
 };
 
 btnClearAll.onclick = () => {
