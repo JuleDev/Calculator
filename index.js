@@ -165,7 +165,7 @@ const Operacion = (p_operationActual) => {
 
 // [+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+][+]
 btnSum.onclick = () => {
-  Operacion(1);
+  // Operacion(1);
   n_operacion = 1;
   toPrint("+");
   s_nroTempScreen = "";
@@ -174,7 +174,7 @@ btnSum.onclick = () => {
 
 // [-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-][-]
 btnRes.onclick = () => {
-  Operacion(2);
+  // Operacion(2);
   n_operacion = 2;
   toPrint("-");
   s_nroTempScreen = "";
@@ -184,7 +184,7 @@ btnRes.onclick = () => {
 
 //[*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*][*]
 btnMul.onclick = () => {
-  Operacion(3);
+  // Operacion(3);
   n_operacion = 3;
   toPrint("*");
   s_nroTempScreen = "";
@@ -193,7 +193,7 @@ btnMul.onclick = () => {
 
 //[/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/][/]
 btnDiv.onclick = () => {
-  Operacion(4);
+  // Operacion(4);
   n_operacion = 4;
   toPrint("/");
   s_nroTempScreen = "";
